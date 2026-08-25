@@ -1,5 +1,16 @@
 # BidLot
 
-Auction Intelligence OS — estate sale triage, max-bid scoring, category-aware valuation.
+Auction Intelligence OS — max-bid scoring, category valuation, estate-sale triage.
 
-Absorbs: `bidlot`, `bidlot-dashboard`, `LotForge`, `BidderEstate`, related scrapers.
+## Local
+
+```bash
+pnpm install
+pnpm --filter @andy-sd/bidlot dev
+```
+
+Open http://localhost:3001
+
+## Deploy
+
+Vercel project root: `apps/bidlot`
