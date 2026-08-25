@@ -1,7 +1,6 @@
 {
   "name": "andy-sd-godtier-monorepo",
   "private": true,
-  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=20"
   },
@@ -11,8 +10,7 @@
     "test": "turbo test",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "clean": "turbo clean && rm -rf node_modules",
-    "format": "prettier --write ."
+    "clean": "turbo clean"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
