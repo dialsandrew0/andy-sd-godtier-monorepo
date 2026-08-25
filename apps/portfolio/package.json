@@ -1,0 +1,19 @@
+{
+  "name": "@andy-sd/portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"Portfolio dev\"",
+    "build": "echo \"Portfolio build\"",
+    "test": "echo \"no tests yet\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"lint ok\""
+  },
+  "dependencies": {
+    "@andy-sd/ui": "workspace:*",
+    "@andy-sd/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

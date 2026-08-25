@@ -1,0 +1,12 @@
+{
+  "name": "@andy-sd/config",
+  "version": "0.1.0",
+  "private": true,
+  "files": ["tsconfig.base.json"],
+  "scripts": {
+    "build": "echo ok",
+    "test": "echo ok",
+    "typecheck": "echo ok",
+    "lint": "echo ok"
+  }
+}

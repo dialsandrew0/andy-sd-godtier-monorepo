@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
@@ -14,8 +15,6 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noUncheckedIndexedAccess": true,
-    "noEmit": true
-  },
-  "exclude": ["node_modules", "dist", ".next", "coverage"]
+    "noUncheckedIndexedAccess": true
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "@andy-sd/artperiod",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"ArtPeriod dev — wire Next.js here\"",
+    "build": "echo \"ArtPeriod build\"",
+    "test": "echo \"no tests yet\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"lint ok\""
+  },
+  "dependencies": {
+    "@andy-sd/triage": "workspace:*",
+    "@andy-sd/valuematrix": "workspace:*",
+    "@andy-sd/utils": "workspace:*",
+    "@andy-sd/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
