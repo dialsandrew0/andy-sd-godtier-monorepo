@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply bg-ink text-slate-100 antialiased min-h-screen;
+  background-image: radial-gradient(ellipse 70% 40% at 50% -10%, rgba(74, 222, 128, 0.12), transparent);
+}

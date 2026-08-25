@@ -1,69 +1,62 @@
 import { scoreWatchlist } from "@/lib/scoring";
 import { DEMO_LOTS } from "@/lib/demo-lots";
 import { LotCard } from "@/components/LotCard";
-import { ScoreDemo } from "@/components/ScoreDemo";
+import Link from "next/link";
 
-export default function HomePage() {
+export default function InboxPage() {
   const scored = scoreWatchlist(DEMO_LOTS).sort(
     (a, b) => b.spreadToBid - a.spreadToBid
   );
-
-  const counts = {
-    bid: scored.filter((l) => l.decision === "bid").length,
-    watch: scored.filter((l) => l.decision === "watch").length,
-    maybe: scored.filter((l) => l.decision === "maybe").length,
-    skip: scored.filter((l) => l.decision === "skip").length,
+  const groups = {
+    bid: scored.filter((l) => l.decision === "bid"),
+    watch: scored.filter((l) => l.decision === "watch"),
+    maybe: scored.filter((l) => l.decision === "maybe"),
+    skip: scored.filter((l) => l.decision === "skip"),
   };
 
   return (
-    <div className="space-y-12">
-      <section className="space-y-4">
-        <p className="text-accent text-sm font-medium tracking-wide uppercase">
-          Live scoring engine
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white max-w-2xl">
-          Know your max bid before the room does.
-        </h1>
-        <p className="text-slate-400 text-lg max-w-xl">
-          Category-aware ARV, fees, logistics, risk, and profit floor — turned into
-          a single decision: bid, watch, maybe, or skip.
-        </p>
-        <div className="flex flex-wrap gap-3 pt-2">
-          {(
-            [
-              ["Bid", counts.bid, "bg-bid/20 text-bid border-bid/40"],
-              ["Watch", counts.watch, "bg-watch/20 text-watch border-watch/40"],
-              ["Maybe", counts.maybe, "bg-slate-500/20 text-slate-300 border-slate-500/40"],
-              ["Skip", counts.skip, "bg-skip/20 text-skip border-skip/40"],
-            ] as const
-          ).map(([label, n, cls]) => (
-            <span
-              key={label}
-              className={`rounded-full border px-3 py-1 text-sm font-medium ${cls}`}
-            >
-              {label}: {n}
-            </span>
-          ))}
+    <div className="space-y-10">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Inbox</h1>
+          <p className="text-slate-400 text-sm mt-1">
+            {scored.length} lots scored — import CTBids watchlist or try the{" "}
+            <Link href="/engine" className="text-accent hover:underline">
+              live engine
+            </Link>
+            .
+          </p>
         </div>
-      </section>
-
-      <section className="grid gap-4">
-        <h2 className="text-xl font-semibold text-white">Demo watchlist (scored)</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {scored.map((lot) => (
-            <LotCard key={lot.title} lot={lot} />
-          ))}
+        <div className="flex flex-wrap gap-2 text-sm">
+          <span className="rounded-full border border-bid/40 bg-bid/20 text-bid px-3 py-1">
+            Bid: {groups.bid.length}
+          </span>
+          <span className="rounded-full border border-watch/40 bg-watch/20 text-watch px-3 py-1">
+            Watch: {groups.watch.length}
+          </span>
+          <span className="rounded-full border border-slate-500/40 bg-slate-500/20 text-slate-300 px-3 py-1">
+            Maybe: {groups.maybe.length}
+          </span>
+          <span className="rounded-full border border-skip/40 bg-skip/20 text-skip px-3 py-1">
+            Skip: {groups.skip.length}
+          </span>
         </div>
-      </section>
+      </div>
 
-      <section id="engine" className="space-y-4">
-        <h2 className="text-xl font-semibold text-white">Try the engine</h2>
-        <p className="text-slate-400 text-sm">
-          Enter a lot title and current bid. Scoring runs client-side with the same
-          production formula.
-        </p>
-        <ScoreDemo />
-      </section>
+      {(["bid", "watch", "maybe", "skip"] as const).map((key) =>
+        groups[key].length > 0 ? (
+          <section key={key}>
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-3">
+              {key} ({groups[key].length})
+            </h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {groups[key].map((lot) => (
+                <LotCard key={lot.title} lot={lot} />
+              ))}
+            </div>
+          </section>
+        ) : null
+      )}
     </div>
   );
 }

@@ -2,30 +2,30 @@ const products = [
   {
     name: "BidLot",
     tag: "Auction Intelligence OS",
-    desc: "Max-bid scoring, estate triage, category valuation for serious buyers.",
+    desc: "Max-bid scoring, radar board, CTBids import, estate triage.",
     href: "https://bidlot-godtier.vercel.app",
     status: "Live",
   },
   {
     name: "ArtPeriod",
     tag: "Collection Intelligence",
-    desc: "Where art meets obsession — research index and field triage.",
-    href: "https://art-period-henna.vercel.app",
+    desc: "Discover, track, collect — field triage for art finds.",
+    href: "https://artperiod-godtier.vercel.app",
     status: "Live",
   },
   {
     name: "FlipForge",
     tag: "Field & Resale",
-    desc: "Photo-to-verdict, authenticity tells, listing generation.",
-    href: "#",
-    status: "In monorepo",
+    desc: "Photo-to-verdict, value ranges, instant listing drafts.",
+    href: "https://flipforge-godtier.vercel.app",
+    status: "Live",
   },
   {
     name: "GigDesk",
     tag: "Gig OS",
-    desc: "Mainframe for gig operators and workflow intelligence.",
-    href: "#",
-    status: "In monorepo",
+    desc: "Mainframe for gig operators — in monorepo, next deploy.",
+    href: "https://github.com/dialsandrew0/andy-sd-godtier-monorepo",
+    status: "Monorepo",
   },
 ];
 
@@ -33,18 +33,13 @@ export default function HubPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 space-y-16">
       <header className="space-y-4 text-center">
-        <p className="text-accent text-sm font-medium tracking-widest uppercase">
-          Andy SD
-        </p>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-          God-tier product hub
-        </h1>
+        <p className="text-accent text-sm font-medium tracking-widest uppercase">Andy SD</p>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">God-tier product hub</h1>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          One monorepo. Shared engines. Independent products for collectors,
-          auction buyers, and field operators.
+          One monorepo. Shared engines. Independent products for collectors, auction
+          buyers, and field operators.
         </p>
       </header>
-
       <div className="grid gap-6 md:grid-cols-2">
         {products.map((p) => (
           <a
@@ -53,9 +48,7 @@ export default function HubPage() {
             className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/40 hover:bg-white/[0.05] transition"
           >
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-xl font-semibold group-hover:text-accent transition">
-                {p.name}
-              </h2>
+              <h2 className="text-xl font-semibold group-hover:text-accent transition">{p.name}</h2>
               <span className="text-xs rounded-full border border-white/10 px-2 py-0.5 text-slate-400">
                 {p.status}
               </span>
@@ -65,13 +58,8 @@ export default function HubPage() {
           </a>
         ))}
       </div>
-
       <footer className="text-center text-sm text-slate-600 pt-8 border-t border-white/5">
-        Monorepo:{" "}
-        <a
-          className="text-slate-400 hover:text-white"
-          href="https://github.com/dialsandrew0/andy-sd-godtier-monorepo"
-        >
+        <a className="text-slate-400 hover:text-white" href="https://github.com/dialsandrew0/andy-sd-godtier-monorepo">
           andy-sd-godtier-monorepo
         </a>
       </footer>
