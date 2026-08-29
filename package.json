@@ -1,19 +1,26 @@
 {
   "name": "andy-sd-godtier-monorepo",
   "private": true,
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "test": "turbo test",
-    "lint": "turbo lint",
-    "typecheck": "turbo typecheck",
-    "clean": "turbo clean"
+    "dev": "turbo run dev --filter=@andy-sd/bidlot --filter=@andy-sd/hub --filter=@andy-sd/artperiod --filter=@andy-sd/flipforge",
+    "build": "turbo run build --filter=@andy-sd/bidlot --filter=@andy-sd/hub --filter=@andy-sd/artperiod --filter=@andy-sd/flipforge",
+    "lint": "turbo run lint --filter=@andy-sd/bidlot --filter=@andy-sd/hub --filter=@andy-sd/artperiod --filter=@andy-sd/flipforge",
+    "typecheck": "turbo run typecheck --filter=@andy-sd/bidlot --filter=@andy-sd/hub --filter=@andy-sd/artperiod --filter=@andy-sd/flipforge",
+    "test": "turbo run test --filter=@andy-sd/* --continue",
+    "clean": "turbo run clean",
+    "dev:bidlot": "pnpm --filter @andy-sd/bidlot dev",
+    "dev:hub": "pnpm --filter @andy-sd/hub dev",
+    "dev:artperiod": "pnpm --filter @andy-sd/artperiod dev",
+    "dev:flipforge": "pnpm --filter @andy-sd/flipforge dev"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "prettier": "^3.4.2",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2"

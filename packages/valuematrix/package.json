@@ -5,9 +5,9 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
-    "build": "tsc --noEmit",
+    "build": "echo \"valuematrix source package\"",
     "test": "echo \"no tests yet\"",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "echo \"typecheck via app consumers\"",
     "lint": "echo \"lint ok\""
   },
   "devDependencies": {

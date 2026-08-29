@@ -2,11 +2,10 @@
   "name": "@andy-sd/config",
   "version": "0.1.0",
   "private": true,
-  "files": ["tsconfig.base.json"],
   "scripts": {
-    "build": "echo ok",
-    "test": "echo ok",
-    "typecheck": "echo ok",
-    "lint": "echo ok"
+    "build": "echo \"config package\"",
+    "test": "echo \"no tests\"",
+    "typecheck": "echo \"ok\"",
+    "lint": "echo \"ok\""
   }
 }

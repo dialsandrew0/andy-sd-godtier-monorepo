@@ -2,65 +2,52 @@
 
 **Single source of truth** for the Andy SD product ecosystem.
 
-| Product | Path | Description |
-|---------|------|-------------|
-| **ArtPeriod** | `apps/artperiod` | Art discovery, collection intelligence, field triage |
-| **BidLot** | `apps/bidlot` | Auction / estate-sale intelligence & max-bid scoring |
-| **FlipForge** | `apps/flipforge` | Field & resale: photo-to-verdict, authenticity, listings |
-| **GigDesk** | `apps/gigdesk` | Gig OS / mainframe |
-| **Portfolio** | `apps/portfolio` | iAndySD personal site |
+| Product | Path | Live |
+|---------|------|------|
+| **BidLot** | `apps/bidlot` | https://bidlot-godtier.vercel.app |
+| **Hub** | `apps/hub` | https://andy-sd-hub.vercel.app |
+| **ArtPeriod** | `apps/artperiod` | https://artperiod-godtier.vercel.app |
+| **FlipForge** | `apps/flipforge` | https://flipforge-godtier.vercel.app |
+| **GigDesk** | `apps/gigdesk` | scaffold |
+| **Portfolio** | `apps/portfolio` | scaffold |
+
+## Quick start (Termux / local)
+
+```bash
+git pull origin main
+rm -rf node_modules apps/*/node_modules packages/*/node_modules
+pnpm install
+
+# All live apps (Turbo)
+pnpm build
+pnpm typecheck
+
+# Single app
+pnpm dev:bidlot      # http://localhost:3001
+pnpm dev:hub
+pnpm dev:artperiod   # :3002
+pnpm dev:flipforge   # :3003
+```
+
+**Do not** use `npm run build --workspaces` — that walks scaffolds and dead paths. Use **pnpm** + the scripts above.
 
 ## Packages (shared)
 
 | Package | Purpose |
 |---------|---------|
-| `@andy-sd/ui` | Design system & components |
-| `@andy-sd/config` | Shared ESLint / TS / Tailwind configs |
-| `@andy-sd/valuematrix` | Valuation & arbitrage engines |
-| `@andy-sd/auction-core` | Max-bid scoring, category valuation, outcome learning |
-| `@andy-sd/triage` | Field triage, authenticity tells, photo analysis |
-| `@andy-sd/utils` | Shared types, helpers, constants |
-
-## Quick start
-
-```bash
-# Requires Node 20+ and pnpm 9+
-pnpm install
-pnpm dev          # runs all apps in parallel (Turborepo)
-pnpm build
-pnpm test
-pnpm lint
-pnpm typecheck
-```
-
-### Run a single app
-
-```bash
-pnpm --filter @andy-sd/artperiod dev
-pnpm --filter @andy-sd/bidlot dev
-pnpm --filter @andy-sd/flipforge dev
-pnpm --filter @andy-sd/gigdesk dev
-```
-
-## Structure
-
-```
-apps/           # Deployable products
-packages/       # Shared libraries
-tools/          # Dev tooling & scripts
-docs/           # Architecture & ADRs
-```
+| `@andy-sd/ui` | Design tokens / components |
+| `@andy-sd/config` | Shared TS config |
+| `@andy-sd/valuematrix` | Valuation & arbitrage |
+| `@andy-sd/auction-core` | Max-bid scoring |
+| `@andy-sd/triage` | Field triage |
+| `@andy-sd/utils` | Helpers |
 
 ## Principles
 
-1. **Apps ship** — each app is independently deployable.
-2. **Packages share** — pure logic and UI live in packages; apps compose them.
-3. **One toolchain** — single TypeScript, ESLint, Prettier, test runner.
-4. **Kebab-case** folders; scoped package names (`@andy-sd/*`).
-
-## Migration status
-
-This monorepo is the canonical home. Older single-purpose repos will be absorbed or archived.
+1. Apps ship independently (Vercel `rootDirectory`).
+2. Packages share pure logic; apps compose.
+3. One toolchain: pnpm + Turbo + TypeScript.
+4. Legacy stubs (`flip-findr-v2`, `gig-desk-mainframe`, `valumatrix-core`) removed.
 
 ---
 

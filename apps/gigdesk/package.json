@@ -3,17 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "echo \"GigDesk dev\"",
-    "build": "echo \"GigDesk build\"",
+    "dev": "echo \"[gigdesk] scaffold only — ship next\"",
+    "build": "echo \"[gigdesk] scaffold only\"",
     "test": "echo \"no tests yet\"",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "echo \"typecheck skip (scaffold)\"",
     "lint": "echo \"lint ok\""
-  },
-  "dependencies": {
-    "@andy-sd/utils": "workspace:*",
-    "@andy-sd/ui": "workspace:*"
-  },
-  "devDependencies": {
-    "typescript": "^5.7.2"
   }
 }

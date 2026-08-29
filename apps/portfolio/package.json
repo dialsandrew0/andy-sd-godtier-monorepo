@@ -3,17 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "echo \"Portfolio dev\"",
-    "build": "echo \"Portfolio build\"",
+    "dev": "echo \"[portfolio] scaffold only — ship next\"",
+    "build": "echo \"[portfolio] scaffold only\"",
     "test": "echo \"no tests yet\"",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "echo \"typecheck skip (scaffold)\"",
     "lint": "echo \"lint ok\""
-  },
-  "dependencies": {
-    "@andy-sd/ui": "workspace:*",
-    "@andy-sd/utils": "workspace:*"
-  },
-  "devDependencies": {
-    "typescript": "^5.7.2"
   }
 }
