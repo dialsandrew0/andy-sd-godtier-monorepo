@@ -1,7 +1,0 @@
-{
-  "name": "flip-findr-v2",
-  "version": "2.0.0",
-  "private": true,
-  "scripts": { "dev": "vite", "build": "tsc && vite build" },
-  "dependencies": { "@andysd/valumatrix-core": "*", "react": "^18.2.0", "react-dom": "^18.2.0" }
-}
